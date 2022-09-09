@@ -3,9 +3,8 @@
 #include <stdio.h>
 /**
  * main - detemined if random input is positive, nagative or zero.
- (*
+ *
  * Return: 0 on sucess.
- * 
  */
 int main(void)
 {
@@ -18,7 +17,7 @@ int main(void)
 	{
 		printf("%d is %s\n", n, "positive");
 	}
-	else if(n < 0)
+	else if (n < 0)
 	{
 		printf("%d is %s\n", n, "negative");
 	}
