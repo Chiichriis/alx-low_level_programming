@@ -3,7 +3,7 @@
 #include <stdio.h>
 /**
  * main - detemined if random input is positive, nagative or zero.
- *
+ (*
  * Return: 0 on sucess.
  * 
  */
@@ -20,7 +20,7 @@ int main(void)
 	}
 	else if(n < 0)
 	{
-		printf("%d is %s\n", n, "nagative");
+		printf("%d is %s\n", n, "negative");
 	}
 	else
 	{
