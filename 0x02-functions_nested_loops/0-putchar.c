@@ -1,7 +1,6 @@
 #include <stdio.h>
 /**
- * main - prints _putchar then new line
- * 
+ * main - prints _putchar then new line.
  * Return: 0 on success
  */
 int main(void)
@@ -15,6 +14,5 @@ int main(void)
 		i++;
 	}
 	putchar('\n');
-
 	return (0);
 }
