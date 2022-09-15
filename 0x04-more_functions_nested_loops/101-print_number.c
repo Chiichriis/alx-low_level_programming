@@ -1,26 +1,26 @@
 #include "main.h"
 
 /**
- * print_number -  checks for checks for a digit (0 through 9).
- * @n: n -  Variable
- * Return: Always 0.
+ * print_number - prints an integer
+ * @n: integer to be printed
  */
 void print_number(int n)
 {
-	unsigned int x;
+	unsigned int n1;
 
 	if (n < 0)
 	{
-		x = -n;
+		n1 = -n;
 		_putchar('-');
-	}
-	else
+	} else
 	{
-		x = n;
+		n1 = n;
 	}
-	if (x / 10)
+
+	if (n1 / 10)
 	{
-		print_number(x / 10);
+		print_number(n1 / 10);
 	}
-	_putchar((x % 10) + '0');
+
+	_putchar((n1 % 10) + '0');
 }
