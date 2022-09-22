@@ -1,63 +1,78 @@
 #include "main.h"
 
 /**
-* _strlen - calculate string length
-* @a: string
-* Return: lenght of string
-*/
-int _strlen(char *a)
+ * rev_string - reverse array
+ * @n: integer params
+ * Return: 0
+ */
+
+void rev_string(char *n)
 {
 	int i = 0;
+	int j = 0;
+	char temp;
 
-	while (*a != '\0')
-		i++, a++;
-	return (i);
+	while (*(n + i) != '\0')
+	{
+		i++;
+	}
+	i--;
+
+	for (j = 0; j < i; j++, i--)
+	{
+		temp = *(n + j);
+		*(n + j) = *(n + i);
+		*(n + i) = temp;
+	}
 }
 
 /**
-* *infinite_add - adds two numbers
-* @n1: number1
-* @n2: number2
-* @r: buffer to store result
-* @size_r: buffer size
-* Return: pointer to the result
-*/
+ * infinite_add - add 2 numbers together
+ * @n1: text representation of 1st number to add
+ * @n2: text representation of 2nd number to add
+ * @r: pointer to buffer
+ * @size_r: buffer size
+ * Return: pointer to calling function
+ */
+
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int k, n2_s, n1_s, m;
+	int overflow = 0, i = 0, j = 0, digits = 0;
+	int val1 = 0, val2 = 0, temp_tot = 0;
 
-	r[size_r] = '\0';
-	k = 0;
-	m = 0;
-	n1_s = _strlen(n1);
-	n2_s = _strlen(n2);
-	size_r--;
-	if (n1_s > size_r || n2_s > size_r || size_r == 0 ||
-	    (n1_s == size_r && n2_s == size_r &&
-	     (n1[0] - '0') + (n2[0] - '0') > 9))
-	{
+	while (*(n1 + i) != '\0')
+		i++;
+	while (*(n2 + j) != '\0')
+		j++;
+	i--;
+	j--;
+	if (j >= size_r || i >= size_r)
 		return (0);
-	}
-	n1_s--;
-	n2_s--;
-	while (n1_s >= 0 || n2_s >= 0)
+	while (j >= 0 || i >= 0 || overflow == 1)
 	{
-		if (n1_s < 0)
-			m = n2[n2_s] - '0' + k;
-		else if (n2_s < 0)
-			m = n1[n1_s] - '0' + k;
+		if (i < 0)
+			val1 = 0;
 		else
-			m = (n1[n1_s] - '0') + (n2[n2_s] - '0') + k;
-		r[size_r] = (m % 10) + '0';
-		k = m / 10;
-		n1_s--, n2_s--, size_r--;
+			val1 = *(n1 + i) - '0';
+		if (j < 0)
+			val2 = 0;
+		else
+			val2 = *(n2 + j) - '0';
+		temp_tot = val1 + val2 + overflow;
+		if (temp_tot >= 10)
+			overflow = 1;
+		else
+			overflow = 0;
+		if (digits >= (size_r - 1))
+			return (0);
+		*(r + digits) = (temp_tot % 10) + '0';
+		digits++;
+		j--;
+		i--;
 	}
-	if (size_r > 0 && (k < 9 && k > 0))
-	{
-		r[size_r] = k + '0';
-		return (r + size_r);
-	}
-	else if (k == 0)
-		return (r + size_r);
-	return (0);
+	if (digits == size_r)
+		return (0);
+	*(r + digits) = '\0';
+	rev_string(r);
+	return (r);
 }
