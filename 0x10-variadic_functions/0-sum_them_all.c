@@ -14,7 +14,7 @@ int sum_them_all(const unsigned int n, ...)
 	va_list args;
 
 	if (n == 0)
-		return;
+		return (sum);
 
 	va_start(args, n);
 
