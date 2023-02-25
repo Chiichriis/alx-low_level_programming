@@ -20,4 +20,4 @@
 
 
 ## Authors
-Tewodros Atirsaw Awedew
+Chinedu Christopher (Chiichriis)
